@@ -1,0 +1,254 @@
+@@OS04J10_2560X1440_MIPI4LANE_RAW10_LINEAR_CMS_30FPS_V2.1_wayne_20260331
+100 99 2560 1440
+100 98 1 0
+102 84 1
+110 80 10 ;10bit
+
+110 1d0 0
+102 9da 0
+
+;eclk=24M
+;pclk=mpll_pclk, row_clk=dpll_row_clk(default)
+;mpll_clk=720M, phyclk=mpll_clk/2=360M, mpll_pclk=mpll_clk/(2*5)=72M, timer_clk=pclk/2=36M
+;dpll_clk=504M, cnt_clk=dpll_clk/1=504M, dpll_row_clk=dpll_clk/(2*7)=36M
+;hts=804, vts=1489, fps=30.071
+
+;#1  DB版本：OS04JAE06
+;#2  注释备注：I2C地址为0x78写入有效寄存器，其它可以忽略， “ ；”作为注释备注
+;#3  更新内容：
+;#4  Sensor info内容：
+;Sensor name: OS04J10
+;Input clock frequency: 24MHz
+;Image output size: 2560x1440
+;Frame rate: 30fps
+;Linear or HDR format and Bit depth: linear 10bit
+;Interface, lane numbers and data rate: MIPI, 4lane, 360Mbps/lane
+;Backend platform name and type: 
+;System clock frequency: 36M
+;HTS*VTS: 804x1489
+;sensor DB version: AM06
+
+
+
+78 fc 01 ;soft reset
+
+78 fd 00
+78 09 06 ;pwd_mpll, pwd_dpll
+78 09 00 ;
+78 14 de ;vdd_clamp_up_dn_on
+78 17 54 ;dpll_nc
+78 1d 78 ;mpll_nc
+78 23 74 ;
+78 24 45 ;
+78 25 21 ;mipi_bypass_ulp
+78 30 0a ;mipi hsize 4msb
+78 31 00 ;mipi hsize 8lsb
+78 32 05 ;mipi vsize 3msb
+78 33 a0 ;mipi vsize 8lsb
+78 3d 01 ;mipi speed
+78 47 00 ;mipi 4lane
+78 58 d0
+78 5a 0d
+78 6b 01
+78 60 04
+78 61 a8
+78 62 bc
+78 63 f8
+78 64 07
+78 65 ae
+78 0a 23
+78 0b f4
+78 a1 16
+78 a2 ca
+78 a4 3f
+78 a8 41
+78 aa 0b
+78 b2 01
+78 b4 00
+78 b5 df
+78 b8 dd
+78 b9 0f
+
+78 ab 07 ;
+78 ac 06 ;
+78 ad 0f ;
+78 af d9 ;
+78 b0 cf ;
+78 b1 00 ;
+78 bf 29 ;
+78 c0 54 ;
+78 c1 ab ;
+78 c2 aa ;
+78 c3 01 ;
+78 c4 07 ;
+78 c5 13 ;
+78 c6 26 ;
+78 d8 20 ;
+78 d9 00 ;
+;;;;;;;;;;;;;;;;;;;;
+78 c7 40
+78 c8 f8
+78 c9 00
+78 ca b0
+78 cb 77
+78 cc 67
+78 cd 34
+78 ce 23
+78 cf c9
+78 d0 da
+78 d1 99
+78 d2 ea
+78 df ff
+78 e0 ff
+78 e6 00
+78 eb 66
+78 ec 66
+78 ed 0c
+
+78 fd 01
+78 0e 05 ;exp 8msb
+78 0f c6 ;exp 8lsb
+78 15 08 ;vb
+78 19 00 ;linear mode
+78 1f 00 ;dig gain 3msb
+78 20 40 ;dig gain 8lsb
+78 22 01 ;rpc en, rpc map2(ramp gain)
+78 23 00 ;ana gain 2msb
+78 24 10 ;ana gain 8lsb
+
+78 3d 05
+78 42 05
+78 43 dd
+
+78 50 01;8a;95 ;
+78 53 01;8a;95 ;
+78 55 01;8a;95 ;
+78 58 01;8a;95 ;
+
+78 5c 14 ;
+78 5d 1a ;
+78 5e 0c ;
+78 66 14 ;
+78 69 13 ;
+78 6d 81 ;
+78 6e 20 ;
+78 74 10 ;
+78 7b 29 ;
+78 82 12 ;
+78 83 06 ;
+78 8e 32 ;
+78 8f 06 ;
+78 90 45 ;
+78 91 24 ;
+78 92 22 ;
+78 93 43 ;
+78 95 4a ;
+78 b0 15 ;
+78 b1 08 ;
+78 b6 02 ;
+78 b7 11 ;
+78 be 08 ;
+78 bf 38 ;
+
+78 fd 02
+78 10 c8
+78 11 16
+78 12 bc
+78 13 55
+78 14 6f
+78 17 f2
+78 20 23
+78 21 24
+78 22 24
+78 23 45
+78 1b 44
+78 28 26
+78 29 28
+78 2a 2a
+78 2b 42
+78 1d 42
+78 2e 29
+78 2f 2b
+78 30 25
+78 31 45
+78 1e 45
+78 2c 3f
+78 37 15
+78 38 15
+
+78 fd 03
+78 0d 20 ;
+78 9a 00 ;
+
+78 fd 04
+78 1b 01 ;
+78 9b 01 ;
+
+78 0b 0c ;
+78 0c 0f ;
+
+78 fd 04
+78 03 24
+78 04 12
+78 05 01
+
+78 fd 04
+78 0d 0f
+78 0e ff
+78 0f ff
+78 10 ff
+
+78 fd 05
+78 01 e0 ;
+78 10 d0 ;
+78 17 08 ;
+78 42 00 ;blc_k_b
+78 43 88 ;blc_k_b
+78 44 00 ;blc_k_gb
+78 45 88 ;blc_k_gb
+78 46 00 ;blc_k_gr
+78 47 88 ;blc_k_gr
+78 48 00 ;blc_k_r
+78 49 88 ;blc_k_r
+78 b0 01
+78 b3 01
+78 b4 ff
+
+78 fd 05
+78 08 03
+78 09 0e
+78 0f 8a;one channel
+78 13 08
+78 14 08
+78 15 08;trigger
+78 4c 20
+
+;2560x1440
+78 fd 03
+78 16 00
+78 17 04
+78 18 0a;2560
+78 19 00
+78 1a 00
+78 1b 04
+78 1c 05;1440
+78 1d a0
+
+78 fd 00
+78 30 0a
+78 31 00
+78 32 05
+78 33 a0
+
+78 fd 09
+78 9d c1 ;otp isp en
+78 83 08
+78 8b 17
+78 c1 18
+78 c3 18
+
+78 fd 00
+78 59 00 ;
+78 2c 01 ;mipi en
+78 57 10 ;otp soft rst
+78 fb 03 ; 
