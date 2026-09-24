@@ -1,4 +1,4 @@
-![usb内核日志_1](D:\Workspace\Doc\0_个人整理\ShareDoc\supreme-octo-meme\image\usb内核日志_1.png)
+![usb内核日志_1](..\image\usb内核日志_1.png)
 
 现象:
 
@@ -31,11 +31,11 @@ hub_event
 
 日志直接打印位于hub_port_reset函数中
 
-![usb内核函数_1](D:\Workspace\Doc\0_个人整理\ShareDoc\supreme-octo-meme\image\usb内核函数_1.png)
+![usb内核函数_1](..\image\usb内核函数_1.png)
 
 从日志打印处往回查,调用这个函数的角色是:port_event
 
-![usb内核函数_2](D:\Workspace\Doc\0_个人整理\ShareDoc\supreme-octo-meme\image\usb内核函数_2.png)
+![usb内核函数_2](..\image\usb内核函数_2.png)
 
 它会在内部尝试重启端口,并且里面固定了循环重建的尝试次数和每次尝试的间隔,在超时后会进入hub_port_disable关闭这个端口,之后在走到函数末尾后退出port_event
 
@@ -43,7 +43,7 @@ hub_event
 
 lsusb 阻塞在等待hub_event函数内
 
-![usb内核函数_4](D:\Workspace\Doc\0_个人整理\ShareDoc\supreme-octo-meme\image\usb内核函数_4.png)
+![usb内核函数_4](..\image\usb内核函数_4.png)
 
 这把锁,它会在经过hub_port_reset()中等待约4秒之后返回处理完自身状态之后释放,直到下一次事件触发
 
