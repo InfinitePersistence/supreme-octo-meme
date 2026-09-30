@@ -676,7 +676,7 @@ flowchart LR
 
 # IP指令查接口
 
-![ScreenShot_2026-09-20_115746_621](D:\Workspace\Doc\0_个人整理\ShareDoc\supreme-octo-meme\image\ScreenShot_2026-09-20_115746_621.png)
+![ScreenShot_2026-09-20_115746_621](..\image\ScreenShot_2026-09-20_115746_621.png)
 
 `eth0/eth1/eth2、wlan*、5g-modem`：Linux 驱动直接创建的底层接口，接近真实硬件。
 
