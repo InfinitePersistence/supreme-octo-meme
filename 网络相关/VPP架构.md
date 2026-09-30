@@ -391,20 +391,27 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    IN["物理口/AF_XDP/DPDK"] --> VPP["VPP<br/>判断报文用途"]
+    IN["物理口 → AF_XDP → DPDK"] --> VPP["VPP按配置处理报文"]
 
-    VPP -->|"普通过路业务流量"| OUT["查询VPP转发表<br/>从另一个接口发出"]
+    VPP -->|"过路业务流量"| OUT["VPP转发处理<br/>→ DPDK → 出口"]
+    VPP -->|"需要Linux处理<br/>且匹配上送规则"| TAP["LCP配对的TAP接口"]
+    VPP -->|"VPP自身处理"| LOCAL["VPP协议/功能节点"]
+    VPP -->|"非法或策略禁止"| DROP["丢弃"]
 
-    VPP -->|"本机服务/控制协议/异常报文"| TAP["TAP / LCP"]
     TAP --> LINUX["Linux协议栈"]
-    LINUX --> SOCK["socket"]
+    LINUX --> SOCK["对应的socket"]
     SOCK --> APP["SSH、Web、FRR等进程"]
+    LINUX --> KERNEL["内核直接处理<br/>例如部分ICMP报文"]
 
-    APP --> SOCK2["socket发送"]
-    SOCK2 --> LINUX2["Linux协议栈"]
-    LINUX2 --> TAP2["TAP / LCP"]
-    TAP2 --> VPP
+    APP -->|"通过socket发送"| LINUX2["Linux协议栈<br/>选路、封装"]
+    KERNEL -->|"需要回复时"| LINUX2
+    LINUX2 --> TAP2["对应TAP接口"]
+    TAP2 -->|"LCP交回数据面"| VPP
 ```
+
+允许在SF2507内部直接二层转发的报文，会从另一个RJ45口出去，不经过这里。
+
+
 
 # 关于DPDK和TAP
 

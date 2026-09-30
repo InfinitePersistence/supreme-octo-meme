@@ -246,3 +246,13 @@ esac
 
 > 这个分支结束。
 
+
+
+##### for命令
+
+```bash
+for var in list;do
+commands
+done
+```
+
